@@ -8,6 +8,7 @@
 
 	<script>
 		let scene = new THREE.Scene()
+		// arguments
 		let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)
 		let renderer = new THREE.WebGLRenderer()
 
@@ -15,8 +16,25 @@
 		renderer.setClearColor(0x3399ff)
 		document.body.appendChild(renderer.domElement)
 
+		// (width, height, depth)
+		let geometry = new THREE.BoxGeometry(5, 5, 5)
+		let material = new THREE.MeshLambertMaterial({color: 0xf6546a})
+		let mesh = new THREE.Mesh(geometry, material)
+		scene.add(mesh)
+
+		// (color, intensity)
+		let light = new THREE.PointLight(0xffffff, 1.2)
+		// (x, y, z)
+		light.position.set(0, 0, 6)
+		scene.add(light)
+
+		// moves the camera
+		camera.position.z = 10
+
 		function render(){
 			requestAnimationFrame(render)
+			mesh.rotation.x += 0.01
+			mesh.rotation.y += 0.01
 			renderer.render(scene, camera)
 		}
 		render()

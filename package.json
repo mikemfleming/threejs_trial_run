@@ -1,0 +1,14 @@
+{
+  "name": "threejs_trial_run",
+  "version": "1.0.0",
+  "description": "a first attempt at using the three.js library",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "mikemfleming",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.80.1"
+  }
+}
